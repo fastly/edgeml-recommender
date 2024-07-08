@@ -1,0 +1,28 @@
+# This file describes a Fastly Compute package. To learn more visit:
+# https://www.fastly.com/documentation/reference/compute/fastly-toml
+
+authors = ["dmilitaru@fastly.com"]
+cloned_from = "https://github.com/fastly/compute-starter-kit-rust-empty"
+description = ""
+language = "rust"
+manifest_version = 3
+name = "recommender-rust"
+service_id = "CgbbsDGyBPS5udAkfd2Lv1"
+
+[local_server]
+
+  [local_server.kv_stores]
+
+    [[local_server.kv_stores.vector_db]]
+      key = "precompiled/cluster-map-195.bincode"
+      file = "../data/precompiled/cluster-map-195.bincode"
+
+[scripts]
+  build = "cargo build --bin recommender --release --target wasm32-wasi --color always"
+  post_build = "wizer --wasm-bulk-memory true --allow-wasi bin/main.wasm -o bin/main.wizer.wasm && wasm-opt -Os bin/main.wizer.wasm -o bin/main.wasm && rm bin/main.wizer.wasm"
+
+[setup]
+
+  [setup.kv_stores]
+
+    [setup.kv_stores.vector_db]

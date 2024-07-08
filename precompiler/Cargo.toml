@@ -1,0 +1,23 @@
+[package]
+name = "precompiler"
+description = "Precompiles HNSW maps for the recommender"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[profile.release]
+debug = 1
+
+[dependencies]
+serde_json = "1.0.120"
+serde = { version = "1.0.203", features = ["derive"] }
+serde_with = "3.8.1"
+instant-distance = { version = "0.6.1", features = ["serde", "serde-big-array"] }
+rmp-serde = { version = "1.3.0", optional = true }
+recommender = { path = "../recommender" }
+bincode = { version = "1.3.3", optional = true }
+
+[features]
+default = ["bincode"]
+msgpack = ["dep:rmp-serde"]
+bincode = ["dep:bincode"]

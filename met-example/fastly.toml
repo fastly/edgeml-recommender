@@ -1,0 +1,49 @@
+# This file describes a Fastly Compute package. To learn more visit:
+# https://www.fastly.com/documentation/reference/compute/fastly-toml
+
+authors = ["abetts@fastly.com", "dmilitaru@fastly.com"]
+cloned_from = "https://github.com/fastly/compute-recommender-met-demo"
+description = ""
+language = "javascript"
+manifest_version = 3
+name = "met-proxy-edgeml-demo"
+service_id = "1vM8rIfVHdRmIkOq7IdUU2"
+
+[local_server]
+
+  [local_server.backends]
+
+    [local_server.backends.met]
+      override_host = "www.metmuseum.org"
+      url = "https://www.metmuseum.org"
+
+    [local_server.backends.met_api]
+      override_host = "collectionapi.metmuseum.org"
+      url = "https://collectionapi.metmuseum.org"
+
+    [local_server.backends.recommender]
+      override_host = "edgeml-recommender-engine.edgecompute.app"
+      url = "https://edgeml-recommender-engine.edgecompute.app"
+
+[scripts]
+  build = "npm run build"
+  post_init = "npm install"
+
+[setup]
+
+  [setup.backends]
+
+    [setup.backends.met]
+      address = "www.metmuseum.org"
+      description = "Met Museum"
+      port = 443
+
+    [setup.backends.met_api]
+      address = "collectionapi.metmuseum.org"
+      description = "Met Museum API"
+      port = 443
+
+    [setup.backends.recommender]
+      address = "edgeml-recommender-engine.edgecompute.app"
+      description = "Recommendations backend"
+      port = 443

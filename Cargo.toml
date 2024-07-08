@@ -1,0 +1,6 @@
+[workspace]
+members = ["recommender", "precompiler"]
+resolver = "2"
+
+[profile.bench]
+debug = true

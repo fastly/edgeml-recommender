@@ -1,0 +1,34 @@
+.fastly-heading {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  margin: 3em 0 1em 0;
+}
+
+.fastly-items {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 1em;
+  justify-content: space-between;
+}
+
+.fastly-items .related-artwork-image {
+  max-width: 21vw;
+}
+
+
+.fastly-heading span.fastly-credit {
+  display: inline-block;
+  padding: 7px 15px;
+  background: red;
+  color: white;
+  border-radius: 7px;
+}
+
+.fastly-heading span.fastly-credit img {
+  width: 55px;
+  filter: brightness(20);
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 2px;
+}

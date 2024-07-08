@@ -1,0 +1,8 @@
+/node_modules
+/bin
+/pkg
+/myenv
+.dora*
+.DS_Store
+.env
+guest-profiles
