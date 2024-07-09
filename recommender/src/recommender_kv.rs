@@ -58,6 +58,10 @@ pub fn get_recommendations(ids: &Vec<u32>, offset: usize, recs: usize) -> Result
         .expect("KV Store lookup failed")
         .expect("Cluster not found");
 
+    println!("Retrieved {} bytes in {:?}", bytes.len(), start.elapsed());
+
+    println!("📦 Deserializing HnswMap from KV Store...");
+    let start = time::Instant::now();
     let cluster: ClusterMap<DIMENSIONS> =
         bincode::deserialize(&bytes).expect("Failed to parse cluster map");
 
