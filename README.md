@@ -83,7 +83,7 @@ This all happens in the blink of an eye.
 Clone this repo and its submodules and download all LFS objects:
 
 ```sh
-git lfs clone --recurse-submodules https://github.com/doramatadora/edgeml-recommender.git
+git lfs clone --recurse-submodules https://github.com/fastly/edgeml-recommender.git
 ```
 
 This includes the `MetObjects.csv` dataset from [`metmuseum/openaccess`](https://github.com/metmuseum/openaccess).
